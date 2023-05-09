@@ -15,6 +15,6 @@ public class PlayerController : NetworkBehaviour {
     }
 
     public override void OnNetworkSpawn() {
-        if (!IsOwner) Destroy(this);
+        if (!IsOwner) enabled = false;
     }
 }
