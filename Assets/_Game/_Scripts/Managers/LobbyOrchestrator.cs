@@ -43,7 +43,7 @@ public class LobbyOrchestrator : NetworkBehaviour {
             }
             catch (Exception e) {
                 Debug.LogError(e);
-                CanvasUtilities.Instance.ShowError("Failed joining lobby");
+                // CanvasUtilities.Instance.ShowError("Failed joining lobby");
             }
         }
     }
@@ -67,7 +67,7 @@ public class LobbyOrchestrator : NetworkBehaviour {
             }
             catch (Exception e) {
                 Debug.LogError(e);
-                CanvasUtilities.Instance.ShowError("Failed creating lobby");
+                // CanvasUtilities.Instance.ShowError("Failed creating lobby");
             }
         }
     }

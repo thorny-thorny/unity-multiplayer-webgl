@@ -55,10 +55,10 @@ public class CanvasUtilities : MonoBehaviour {
 
 public class Load : IDisposable {
     public Load(string text) {
-        CanvasUtilities.Instance.Toggle(true, text);
+        // CanvasUtilities.Instance.Toggle(true, text);
     }
 
     public void Dispose() {
-        CanvasUtilities.Instance.Toggle(false);
+        // CanvasUtilities.Instance.Toggle(false);
     }
 }

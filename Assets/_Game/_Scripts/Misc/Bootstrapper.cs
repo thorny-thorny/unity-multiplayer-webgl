@@ -1,6 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
+// using UnityEngine.AddressableAssets;
 
 /// <summary>
 ///     This will run once before any other scene script
@@ -9,6 +9,6 @@ public static class Bootstrapper {
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void Initialize() {
         MatchmakingService.ResetStatics();
-        Addressables.InstantiateAsync("CanvasUtilities");
+        // Addressables.InstantiateAsync("CanvasUtilities");
     }
 }
