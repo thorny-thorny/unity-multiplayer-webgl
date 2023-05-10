@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Unity.Netcode.Transports.UTP;
+using Unity.Networking.Transport.Relay;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using Unity.Services.Relay;
@@ -68,7 +69,7 @@ public static class MatchmakingService {
 
         _currentLobby = await Lobbies.Instance.CreateLobbyAsync(data.Name, data.MaxPlayers, options);
 
-        Transport.SetHostRelayData(a.RelayServer.IpV4, (ushort)a.RelayServer.Port, a.AllocationIdBytes, a.Key, a.ConnectionData);
+        Transport.SetRelayServerData(new RelayServerData(a, "wss"));
 
         Heartbeat();
         PeriodicallyRefreshLobby();
@@ -95,7 +96,7 @@ public static class MatchmakingService {
         _currentLobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId);
         var a = await RelayService.Instance.JoinAllocationAsync(_currentLobby.Data[Constants.JoinKey].Value);
 
-        Transport.SetClientRelayData(a.RelayServer.IpV4, (ushort)a.RelayServer.Port, a.AllocationIdBytes, a.Key, a.ConnectionData, a.HostConnectionData);
+        Transport.SetRelayServerData(new RelayServerData(a, "wss"));
 
         PeriodicallyRefreshLobby();
     }
